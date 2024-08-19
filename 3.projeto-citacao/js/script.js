@@ -1,4 +1,4 @@
-// ar
+// array de citações
 const citacoes = [
     { area: "Filosofia", quote: "A vida deve ser vivida como uma obra de arte.", author: "Friedrich Nietzsche" },
     { area: "Ciência", quote: "A ciência é uma forma de pensar muito mais do que um corpo de conhecimentos.", author: "Carl Sagan" },
