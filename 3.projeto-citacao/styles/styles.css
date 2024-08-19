@@ -1,0 +1,45 @@
+body{
+    background-color: #eee;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quote{
+    background-color: #fff;
+    padding: 1rem;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 2px 2px 3px 1px rgba(0,0,0,.3);
+    border-radius: 10px;
+}
+
+
+.author,
+.text{
+font-style: italic;
+color: #133110;
+}
+
+.button{
+    background-color: #333;
+    font-size: 1rem;
+    padding: .7rem;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: .8;
+    transition: .6s;
+}
+
+.button:hover{
+    opacity: 1;
+}
