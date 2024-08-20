@@ -1,0 +1,62 @@
+
+
+h1{
+    color: black;
+    text-align: center;
+
+}
+.container{
+    max-width: 50%;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.barra_de_progresso{
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+
+}
+
+.progresso{
+    width: 0%;
+    height: 100%;
+    background-color: #f83d1c;
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+
+}
+
+#previous-btn{
+    background-color: transparent;
+    color: #f83d1c;
+    border: 2px solid #f83d1c;
+}
+
+
+
+
+button{
+    padding: .4rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border:  none; 
+    background-color: #f83d1c;
+    color: #fff;
+    cursor: pointer;
+    margin: 1rem;
+    transition: .5s;
+}
+
+button:hover,
+#previous-btn:hover{
+    background-color: #fc4626cc;
+    color: #fff;
+    border: 2px solid #ffffff;
+}
+.controlhes{
+    display: flex;
+    justify-content: space-between;
+}

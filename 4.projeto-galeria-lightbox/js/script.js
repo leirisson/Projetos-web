@@ -6,7 +6,6 @@ const light_fechar = document.querySelector(".lightbox-close")
 
 
 // função de abrir o llightbox
-
 galeria.forEach((item)=> {
     item.addEventListener("click", () => {
         const img_url = item.querySelector(".galeria-img").getAttribute("data-src")
