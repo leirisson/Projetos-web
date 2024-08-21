@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta de cores </title>
+</head>
+<link rel="stylesheet" href="./styles/styles.css">
+<script src="./js/script.js" defer></script>
+<body>
+    <div class="container">
+        <h2>Calculadora de Gorjetas</h2>
+        <label for="valor-conta">Valor da conta:</label>
+        <input type="number" id="valor-conta" name="valor-conta" placeholder="R$">    
+        <label for="qualidade">
+            Qualidade do Serviço:
+        </label>
+        <select name="qualidade" id="qualidade">
+            <option value="0.1">Excelente - 10%</option>
+            <option value="0.08">Ótimo - 8%</option>
+            <option value="0.05">Bom  - 5%</option>
+            <option value="0.02">Ruim - 2%</option>
+        </select>
+        <button id="calcular">Calcular Gorjeta</button>
+        <div class="resul">
+            <label for="gorjeta">Valor da gorjeta</label>
+            <input type="number" id="gorjeta" name="gorjeta" disabled/>
+            <label for="total">Total</label>
+            <input type="number" id="numer_liquid" name="gorjeta", disabled>
+        </div>
+    </div>
+</body>
+</html>
