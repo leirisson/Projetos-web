@@ -14,10 +14,14 @@ function calcular(){
     const total = tip_pagamento + pagamento
     
 
-    const exibir_gosrjeta = document.querySelector("valor-conta") = `R$ ${tip_pagamento}`
-   const total_amount = total_amount
- 
+    const exibir_gorjeta = document.querySelector("#gorjeta")
+    const total_pagar = document.querySelector("#numer_liquid")
 
+
+    exibir_gorjeta.value = tip_pagamento.toLocaleString('pt-BR', {style: "currency", currency: "BRL"})
+    total_pagar.value = total.toLocaleString('pt-BR', {style: "currency", currency: "BRL"}) 
+ 
+    
 
 }
 
