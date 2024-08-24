@@ -1,45 +1,79 @@
-//selecionando os elementos
-const form = document.querySelector("form")
-const nome = document.querySelector("#nome")
-const email = document.querySelector("#email")
-const assunto = document.querySelector("#assunto")
-const messagem = document.querySelector("#mensagem")
-const erros = document.querySelectorAll(".error-message")
+const cards = [1, 1, 2, 2, 3, 3, 4, 4];
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault()
-    validacao_input()
-    
-})
 
-function setErro(input, errorMessage){
-    const errorgetElement = input.nextElementSibling;
-    errorgetElement.textContent = errorMessage
-    errorgetElement.classList.add("aparecer")
-    input.parentElement.classList.add("error")
+
+async function gerarImagens(){
+    const imagensPares = {}
+    for (let i = 0; i <  cards.length; i++){
+        if (!imagensPares[cards[i]]){
+            const id = Math.floor(Math.random() *1000) + 1;
+            const url = `https://picsum.photos/id/${id}/300/400`
+            imagensPares[cards[i]] = [url, url]
+        }
+    }
+    console.log(imagensPares)
+    return imagensPares
+}
+
+function embaralhar(){
+    cards.sort(() => Math.random() - 0.5)
+}
+
+async function criaCard() {
+    const imagensPares = await gerarImagens()
+    embaralhar(cards)
+    const cardList = document.querySelector(".container")
+
+    for(let i =0; i< cards.length; i++){
+        const card = document.createElement("div")
+        const cardFront = document.createElement("div")
+        const cardBack = document.createElement("div")
+
+        card.classList.add("card")
+        cardFront.classList.add("front")
+        cardBack.classList.add("back")
+
+        cardBack.style.backgroundImage = `url('img/img1.png')`
+
+        const cardNumber = card[i]
+        const cardImage = imagensPares[cardNumber]
+
+        cardFront.style.backgroundImage = `url(${cardImage})`
+
+        card.setAttribute("dat-card", cardNumber)
+
+        card.appendChild(cardFront)
+        card.appendChild(cardBack)
+        card.addEventListener("click", flipCard)
+        cardList.appendChild(card)
+
+    }
 
 }
 
-function validacao_input(){
-    const nomeValue = nome.value.trim()
-    const emailValue = email.value.trim()
-    const assuntoValue = assunto.value.trim()
-    const textAreaValue = messagem.value.trim()
+let flipCards = 0;
+let fristCards, secondCards;
+let conatgem = 0;
 
 
-    if (nome === "" || nomeValue.length < 3){
-        // erro 
-        setErro(nome, "nome não pode ficar em brando ou ter menos de 3 caracteres")
-    } 
-    if (emailValue === ""){
-        setErro(email, "E-mail incorreto ou está em branco")
+function flipCard(){
+    if(flipCards < 2 && !this.classList.contains("flip")){
+        flipCards++;
+        this.classList.add("flip")
+        if (flipCards === 1){
+            fristCards = this
+        } else {
+            secondCards = this;
+            conatgem++;
+            atualizarTentativas();
+        }
     }
-    if (assuntoValue == ""){
-        setErro(assunto, "O assunto da mendagem não pode está em branco")
-    }
-    if (textAreaValue === "" || textAreaValue.length < 10){
-        setErro(messagem, "A mensagem tem que ter no minimo 10 caracteres.")
-    }
-    
 }
 
+
+function atualizarTentativas(){
+    const elementoConatgem = document.querySelector(".attemps")
+    elementoConatgem.textContent = `Tentativas ${conatgem}`
+}
+
+criaCard()
